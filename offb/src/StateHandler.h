@@ -21,8 +21,8 @@ class StateHandler{
     	ros::ServiceClient armModeClient(ros::NodeHandle& node);
     	ros::ServiceClient setModeClient(ros::NodeHandle& node);
 		void Connect(ros::Rate& rate);
-		void armDrone(mavros_msgs::CommandBool &arm_cmd,ros::NodeHandle &node);
-        void setOFFBOARD(mavros_msgs::SetMode& offb_set_mode, ros::NodeHandle &node);
+		void armDrone(mavros_msgs::CommandBool &arm_cmd,ros::ServiceClient& armingClient);
+        void setOFFBOARD( mavros_msgs::SetMode& offb_set_mode, ros::ServiceClient& set_mode_client);
 
 	private:
 		ros::Subscriber state_sub;
